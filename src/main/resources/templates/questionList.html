@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+<head>
+<meta charset="ISO-8859-1">
+<title>The Admin Page</title>
+</head>
+<body>
+	<h1>Question List Admin Site</h1>
+	<form th:action="@{/logout}" method="post">
+		<input type="submit" value="Log out" class="btn btn-danger">
+	</form>
+	<div class="list">
+		<table class="table table-stripped">
+			<tr>
+				<th>ID</th>
+				<th>Question</th>
+				<th>Question type</th>
+				<th> </th>
+				<th> </th>
+			</tr>
+			<tr th:each="question : ${questions}">
+				<td th:text="${question.id}"></td>
+				<td th:text="${question.questionText}"></td>
+				<td th:text="${question.questionType.type}"></td>
+				<td><a th:href="@{/edit/{id}(id=${question.id})}" class="btn btn-success edit" method="get">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${question.id})}" class="btn btn-danger delete" method="get">Delete</a></td>
+				
+			</tr>
+		</table>
+	</div>
+	<div class="addbtn">
+			<a th:href="@{/add}" class="btn btn-success">Add question</a>
+		</div>
+</body>
+</html>
