@@ -2,7 +2,7 @@
 Ohjelmistoprojekti I
 
 ## Heroku deploy
-http://moodleinquiry.herokuapp.com/questions
+https://moodleinquiry.herokuapp.com/open/questions
 
-### ThePage
+### ThePage (provided by front-end)
 https://hepo.herokuapp.com/
